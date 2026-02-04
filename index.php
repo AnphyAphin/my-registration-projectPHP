@@ -1,19 +1,15 @@
-<?php
-require_once 'includes/header.php';
-?>
+<?php require_once 'includes/header.php'; ?>
 
 <div class="hero">
     <h1>Welcome to Our Website</h1>
     <p>Your gateway to amazing content and resources!</p>
 </div>
 
-
-<div class="content-grid" id="register">
+<div id="register">
     <div class="card">
         <h2><i class="fas fa-user-plus"></i> Registration Form</h2>
 
         <?php
-        // Define error messages once
         $errors = [
             'empty' => 'All fields are required!',
             'password_mismatch' => 'Passwords do not match!',
@@ -22,7 +18,6 @@ require_once 'includes/header.php';
             'database' => 'Database error occurred!'
         ];
 
-        // Unified message handling
         if (isset($_GET['error'])) {
             echo '<div class="alert error">' . ($errors[$_GET['error']] ?? "An error occurred!") . '</div>';
         } elseif (isset($_GET['success'])) {
@@ -30,9 +25,9 @@ require_once 'includes/header.php';
         }
         ?>
 
-        <form id="registrationForm" action="register.php" method="POST" enctype="multipart/form-data">
-            <div class="form-group form-row">
-                <label><i class="fas fa-user"></i>Name</label>
+        <form id="registrationForm" action="register.php" method="POST">
+            <div class="form-group">
+                <label><i class="fas fa-user"></i> Name</label>
                 <input type="text" name="name" required>
             </div>
 
@@ -56,7 +51,8 @@ require_once 'includes/header.php';
             <button type="submit" class="btn btn-primary">
                 <i class="fas fa-user-plus"></i> Register Now
             </button>
-            <div class="login-prompt">
+
+            <div style="text-align:center; margin-top:15px;">
                 <p>Already have an account?</p>
                 <a href="login.php" class="btn btn-secondary">
                     <i class="fas fa-sign-in-alt"></i> Login Here
@@ -66,6 +62,4 @@ require_once 'includes/header.php';
     </div>
 </div>
 
-<?php
-require_once 'includes/footer.php';
-?>
+<?php require_once 'includes/footer.php'; ?>

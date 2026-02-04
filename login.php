@@ -1,8 +1,9 @@
 <?php
 require_once 'includes/header.php';
-require_once 'includes/database.php';
+require_once 'config/database.php';
 
-$error = 'null';
+$error = null;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
@@ -12,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query = "SELECT * FROM users WHERE username = :username LIMIT 1";
     $stmt = $db->prepare($query);
-    $stmt0->bindParam(':username', $username);
+    $stmt->bindParam(':username', $username);
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {
@@ -23,12 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['username'] = $user['username'];
             header("Location: dashboard.php");
             exit();
-        } else {
-            $error = 'Invalid username or password.';
         }
-    } else {
-        $error = 'Invalid username or password.';
     }
+
+    $error = "Invalid username or password.";
 }
 ?>
 
@@ -36,13 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="card login-card">
         <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
 
-        <?php if ($error !== 'null'): ?>
-            <div class="alert alert-danger"><?php echo $error; ?></div>
+        <?php if (!empty($error)): ?>
+            <div class="alert error"><?php echo $error; ?></div>
         <?php endif; ?>
 
         <form action="login.php" method="POST">
             <div class="form-group">
-                <label><i class="fas fa-envelope"></i> Username</label>
+                <label><i class="fas fa-user"></i> Username</label>
                 <input type="text" name="username" required>
             </div>
 
@@ -56,12 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </button>
         </form>
 
-        <div class="login-links">
-            <a href="index.php#register">Create new account</a>
+        <div style="text-align:center; margin-top:15px;">
+            <a href="index.php">Create new account</a>
         </div>
     </div>
 </div>
 
-<?php
-require_once 'includes/footer.php';
-?>
+<?php require_once 'includes/footer.php'; ?>

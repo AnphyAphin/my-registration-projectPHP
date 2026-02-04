@@ -10,7 +10,6 @@ body {
     color: #333;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
-    /* background: linear-gradient(rgba(102, 126, 234, 0.6), rgba(118, 75, 162, 0.6)), url('images/forest.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; */
 }
 
 .container {
@@ -35,7 +34,6 @@ body {
 
 .nav-flex {
     display: flex;
-    justify-content: flex-start;
     justify-content: space-between;
     align-items: center;
 }
@@ -67,7 +65,6 @@ body {
 
 .hero {
     text-align: center;
-    /* padding: 20% 0; */
     padding: 3rem 0;
     color: white;
 }
@@ -81,26 +78,19 @@ body {
     opacity: 0.9;
 }
 
-.content-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-}
-
 #register {
     display: flex;
     justify-content: center;
-    min-height: 100vh;
-    /* display: none; */
-
+    padding: 30px 0;
 }
 
 .card {
     background: white;
     border-radius: 15px;
-    padding: 4rem;
+    padding: 2.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 70%;
+    width: 100%;
+    max-width: 600px;
 }
 
 .card h2 {
@@ -116,12 +106,6 @@ body {
     margin-bottom: 1.2rem;
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
 label {
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -130,17 +114,15 @@ label {
     align-items: center;
 }
 
-input,
-textarea {
+input {
     width: 100%;
-    padding: .35rem 0.75rem;
+    padding: .6rem 0.75rem;
     border: 2px solid #e1e1e1;
     border-radius: 8px;
     font-size: 1rem;
 }
 
-input:focus,
-textarea:focus {
+input:focus {
     outline: none;
     border-color: #667eea;
 }
@@ -150,7 +132,7 @@ textarea:focus {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.45rem 1.5rem;
+    padding: 0.6rem 1.5rem;
     border-radius: 8px;
     font-weight: 600;
     border: none;
@@ -168,6 +150,7 @@ textarea:focus {
     background: #f8f9fa;
     border: 2px solid #ddd;
     color: #333;
+    margin-top: 10px;
 }
 
 .alert {
@@ -188,37 +171,10 @@ textarea:focus {
     color: #721c24;
 }
 
-.features {
-    list-style: none;
+.error-text {
+    color: #dc3545;
+    font-size: 0.9rem;
 }
-
-.features li {
-    padding: 0.8rem 0;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    gap: 0.7rem;
-    align-items: center;
-}
-
-.features i {
-    color: #28a745;
-}
-
-.login-prompt {
-    margin-top: 1.5rem;
-    padding-top: 1.2rem;
-    border-top: 2px solid #eee;
-    text-align: center;
-}
-
-
-.footer {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 2rem 0;
-    text-align: center;
-    margin-top: 3rem;
-}
-
 
 .login-container {
     display: flex;
@@ -235,6 +191,7 @@ textarea:focus {
 .dashboard {
     padding: 40px 0;
     color: white;
+    text-align: center;
 }
 
 .profile-card {
@@ -243,58 +200,12 @@ textarea:focus {
     border-radius: 15px;
     padding: 2rem;
     margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-.profile-header {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.profile-img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.profile-img-placeholder {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: #888;
-}
-
-.profile-info .info-item {
-    padding: 0.7rem 0;
-    border-bottom: 1px solid #eee;
-}
-
-.profile-info .label {
-    font-weight: 700;
-    margin-right: 10px;
-}
-
-.text-muted {
-    color: #777;
-}
-
 
 @media(max-width: 768px) {
-    .content-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
     .nav-flex {
         flex-direction: column;
         gap: 1rem;
