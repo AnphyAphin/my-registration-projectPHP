@@ -35,3 +35,20 @@ if ($stmt->rowCount() > 0) {
 }
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+
+$query = "INSERT INTO users (username, password, name)
+          VALUES (:username, :password, :name)";
+
+$stmt = $db->prepare($query);
+$stmt->bindParam(":username", $username);
+$stmt->bindParam(":password", $hashed_password);
+$stmt->bindParam(":name", $name);
+
+if ($stmt->execute()) {
+    header("Location: index.php?success=true");
+} else {
+    header("Location: index.php?error=database");
+}
+exit();
+?>

@@ -8,7 +8,7 @@ require_once 'includes/header.php';
 </div>
 
 
-<div class="content-grid" id="register" style="display: ;">
+<div class="content-grid" id="register">
     <div class="card">
         <h2><i class="fas fa-user-plus"></i> Registration Form</h2>
 
